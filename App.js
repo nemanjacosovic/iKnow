@@ -3,8 +3,6 @@ import { StyleSheet, Text, View } from 'react-native';
 import FetchLocation from './components/FetchLocation'
 import UserMap from './components/UsersMap'
 
-let thankYouMessage = null
-
 export default class App extends React.Component {
   constructor(props) {
     super(props)
@@ -18,7 +16,7 @@ export default class App extends React.Component {
 
   // HANDLE GET LOCATION
   getUserLocationHandler = () => {
-    this.setState = ({
+    this.setState({
       buttonClicked: true
     })
 
@@ -26,7 +24,7 @@ export default class App extends React.Component {
 
     navigator.geolocation.getCurrentPosition(
       position => {
-        this.setState = ({
+        this.setState({
           userLocation: {
             latitude: position.coords.latitude,
             longitude: position.coords.longitude,
@@ -34,7 +32,7 @@ export default class App extends React.Component {
             longitudeDelta: 0.0421
           },
           buttonClicked: true
-        }, this.forceUpdate())
+        })
         console.log('# POSITION #' + '\n', this.state.userLocation, '\n ------------------------------------')
         console.log('# POSITION #' + '\n', position, '\n ------------------------------------')
       },
@@ -44,6 +42,7 @@ export default class App extends React.Component {
 
 
   render() {
+    let thankYouMessage
     console.log('# RENDER # buttonClicked' + '\n', this.state.buttonClicked, '\n ------------------------------------')
 
     // HANDLE THANK YOU MESSAGE
@@ -52,6 +51,8 @@ export default class App extends React.Component {
     } else {
       thankYouMessage = <Text>non.</Text>
     }
+
+    console.log('this is a request')
 
 
     return (
