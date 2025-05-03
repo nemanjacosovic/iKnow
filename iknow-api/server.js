@@ -16,7 +16,7 @@ app.use(bodyParser.json());
 const pool = new Pool({
   user: "postgres",
   host: "localhost",
-  database: "iknowdbs",
+  database: "iknowdb",
   password: "your_password", // Replace with your actual password
   port: 5432,
 });
