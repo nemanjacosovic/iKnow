@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "iKnow",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}
