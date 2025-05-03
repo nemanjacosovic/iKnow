@@ -1,10 +1,12 @@
 {
-  "name": "iknow",
+  "name": "iknow-api",
   "version": "1.0.0",
-  "description": "Trivia game",
-  "main": "index.js",
+  "description": "iKnow API",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "dev": "nodemon server.js"
   },
   "keywords": [
     "iknow",
@@ -14,6 +16,6 @@
   "author": "Nemanja A. Cosovic",
   "license": "ISC",
   "dependencies": {
-    "express": "^5.1.0"
+    "express": "5.1.0"
   }
 }
