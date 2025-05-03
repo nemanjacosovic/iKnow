@@ -105,7 +105,7 @@ const Layout = ({ children, title }) => {
       <div className={classes.toolbar}>
         <Box p={2}>
           <Typography variant="h6" noWrap>
-            Trivia Admin
+            iKnow Admin
           </Typography>
         </Box>
       </div>

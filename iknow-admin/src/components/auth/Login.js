@@ -43,7 +43,7 @@ const Login = () => {
         <Paper elevation={3}>
           <Box p={4}>
             <Typography variant="h4" align="center" gutterBottom>
-              Trivia Admin Login
+              iKnow Admin Login
             </Typography>
             <Formik
               initialValues={{ email: "", password: "" }}
