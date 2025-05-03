@@ -145,7 +145,7 @@ const QuestionForm = () => {
             {({ values, errors, touched, isSubmitting, setFieldValue }) => (
               <Form>
                 <Grid container spacing={3}>
-                  <Grid item xs={12} sm={6}>
+                  <Grid sm={6}>
                     <FormControl
                       variant="outlined"
                       fullWidth
@@ -172,7 +172,7 @@ const QuestionForm = () => {
                       )}
                     </FormControl>
                   </Grid>
-                  <Grid item xs={12} sm={6}>
+                  <Grid sm={6}>
                     <FormControl
                       variant="outlined"
                       fullWidth
@@ -196,7 +196,7 @@ const QuestionForm = () => {
                       )}
                     </FormControl>
                   </Grid>
-                  <Grid item xs={12}>
+                  <Grid>
                     <Field
                       as={TextField}
                       fullWidth
@@ -209,7 +209,7 @@ const QuestionForm = () => {
                       helperText={touched.question && errors.question}
                     />
                   </Grid>
-                  <Grid item xs={12}>
+                  <Grid>
                     <Typography variant="subtitle1" gutterBottom>
                       Answers (Exactly 4 answers with 1 marked as correct)
                     </Typography>
@@ -290,7 +290,7 @@ const QuestionForm = () => {
                       )}
                     </FieldArray>
                   </Grid>
-                  <Grid item xs={12}>
+                  <Grid>
                     <Box display="flex" justifyContent="flex-end">
                       <Button
                         type="button"

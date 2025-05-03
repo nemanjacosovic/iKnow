@@ -6,7 +6,7 @@ import {
   Drawer,
   IconButton,
   List,
-  ListItem,
+  ListItemButton,
   ListItemIcon,
   ListItemText,
   Toolbar,
@@ -111,37 +111,37 @@ const Layout = ({ children, title }) => {
       </div>
       <Divider />
       <List>
-        <ListItem button component={Link} to="/dashboard">
+        <ListItemButton component={Link} to="/dashboard">
           <ListItemIcon>
             <DashboardIcon />
           </ListItemIcon>
           <ListItemText primary="Dashboard" />
-        </ListItem>
-        <ListItem button component={Link} to="/categories">
+        </ListItemButton>
+        <ListItemButton component={Link} to="/categories">
           <ListItemIcon>
             <CategoryIcon />
           </ListItemIcon>
           <ListItemText primary="Categories" />
-        </ListItem>
-        <ListItem button component={Link} to="/questions">
+        </ListItemButton>
+        <ListItemButton component={Link} to="/questions">
           <ListItemIcon>
             <QuestionIcon />
           </ListItemIcon>
           <ListItemText primary="Questions" />
-        </ListItem>
-        <ListItem button component={Link} to="/sets">
+        </ListItemButton>
+        <ListItemButton component={Link} to="/sets">
           <ListItemIcon>
             <SetIcon />
           </ListItemIcon>
           <ListItemText primary="Question Sets" />
-        </ListItem>
+        </ListItemButton>
         {isAdmin && (
-          <ListItem button component={Link} to="/users">
+          <ListItemButton component={Link} to="/users">
             <ListItemIcon>
               <PeopleIcon />
             </ListItemIcon>
             <ListItemText primary="Users" />
-          </ListItem>
+          </ListItemButton>
         )}
       </List>
     </div>

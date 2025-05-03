@@ -146,7 +146,7 @@ const Register = () => {
 
                   <Box mt={2}>
                     <Grid container justifyContent="flex-end">
-                      <Grid item>
+                      <Grid>
                         <Link to="/" style={{ textDecoration: "none" }}>
                           <Typography variant="body2" color="primary">
                             Already have an account? Login

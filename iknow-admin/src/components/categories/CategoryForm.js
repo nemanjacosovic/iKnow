@@ -101,7 +101,7 @@ const CategoryForm = () => {
             {({ errors, touched, isSubmitting }) => (
               <Form>
                 <Grid container spacing={3}>
-                  <Grid item xs={12} sm={6}>
+                  <Grid sm={6}>
                     <Field
                       as={TextField}
                       fullWidth
@@ -112,7 +112,7 @@ const CategoryForm = () => {
                       helperText={touched.category && errors.category}
                     />
                   </Grid>
-                  <Grid item xs={12} sm={6}>
+                  <Grid sm={6}>
                     <Field
                       as={TextField}
                       fullWidth
@@ -123,7 +123,7 @@ const CategoryForm = () => {
                       helperText={touched.subcategory && errors.subcategory}
                     />
                   </Grid>
-                  <Grid item xs={12} sm={6}>
+                  <Grid sm={6}>
                     <Field
                       as={TextField}
                       fullWidth
@@ -134,7 +134,7 @@ const CategoryForm = () => {
                       helperText={touched.universe && errors.universe}
                     />
                   </Grid>
-                  <Grid item xs={12} sm={6}>
+                  <Grid sm={6}>
                     <Field
                       as={TextField}
                       fullWidth
@@ -145,7 +145,7 @@ const CategoryForm = () => {
                       helperText={touched.ip_owner && errors.ip_owner}
                     />
                   </Grid>
-                  <Grid item xs={12}>
+                  <Grid>
                     <Box display="flex" justifyContent="flex-end">
                       <Button
                         type="button"

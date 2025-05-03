@@ -116,7 +116,7 @@ const Profile = () => {
             {({ errors, touched, isSubmitting }) => (
               <Form>
                 <Grid container spacing={3}>
-                  <Grid item xs={12} sm={6}>
+                  <Grid sm={6}>
                     <Field
                       as={TextField}
                       fullWidth
@@ -127,7 +127,7 @@ const Profile = () => {
                       helperText={touched.username && errors.username}
                     />
                   </Grid>
-                  <Grid item xs={12} sm={6}>
+                  <Grid sm={6}>
                     <Field
                       as={TextField}
                       fullWidth
@@ -139,7 +139,7 @@ const Profile = () => {
                       helperText={touched.email && errors.email}
                     />
                   </Grid>
-                  <Grid item xs={12}>
+                  <Grid>
                     <Divider />
                     <Box mt={2} mb={2}>
                       <Typography variant="subtitle1">
@@ -147,7 +147,7 @@ const Profile = () => {
                       </Typography>
                     </Box>
                   </Grid>
-                  <Grid item xs={12}>
+                  <Grid>
                     <Field
                       as={TextField}
                       fullWidth
@@ -164,7 +164,7 @@ const Profile = () => {
                       }
                     />
                   </Grid>
-                  <Grid item xs={12} sm={6}>
+                  <Grid sm={6}>
                     <Field
                       as={TextField}
                       fullWidth
@@ -176,7 +176,7 @@ const Profile = () => {
                       helperText={touched.newPassword && errors.newPassword}
                     />
                   </Grid>
-                  <Grid item xs={12} sm={6}>
+                  <Grid sm={6}>
                     <Field
                       as={TextField}
                       fullWidth
@@ -193,7 +193,7 @@ const Profile = () => {
                       }
                     />
                   </Grid>
-                  <Grid item xs={12}>
+                  <Grid>
                     <Box display="flex" justifyContent="flex-end">
                       <Button
                         type="submit"

@@ -116,7 +116,7 @@ const UserForm = () => {
             {({ errors, touched, isSubmitting, values }) => (
               <Form>
                 <Grid container spacing={3}>
-                  <Grid item xs={12} sm={6}>
+                  <Grid sm={6}>
                     <Field
                       as={TextField}
                       fullWidth
@@ -127,7 +127,7 @@ const UserForm = () => {
                       helperText={touched.username && errors.username}
                     />
                   </Grid>
-                  <Grid item xs={12} sm={6}>
+                  <Grid sm={6}>
                     <Field
                       as={TextField}
                       fullWidth
@@ -139,7 +139,7 @@ const UserForm = () => {
                       helperText={touched.email && errors.email}
                     />
                   </Grid>
-                  <Grid item xs={12}>
+                  <Grid>
                     <Field
                       as={TextField}
                       fullWidth
@@ -155,7 +155,7 @@ const UserForm = () => {
                       helperText={touched.password && errors.password}
                     />
                   </Grid>
-                  <Grid item xs={12} sm={6}>
+                  <Grid sm={6}>
                     <FormControlLabel
                       control={
                         <Field
@@ -168,7 +168,7 @@ const UserForm = () => {
                       label="Active"
                     />
                   </Grid>
-                  <Grid item xs={12} sm={6}>
+                  <Grid sm={6}>
                     <FormControlLabel
                       control={
                         <Field
@@ -181,7 +181,7 @@ const UserForm = () => {
                       label="Admin"
                     />
                   </Grid>
-                  <Grid item xs={12}>
+                  <Grid>
                     <Box display="flex" justifyContent="flex-end">
                       <Button
                         type="button"

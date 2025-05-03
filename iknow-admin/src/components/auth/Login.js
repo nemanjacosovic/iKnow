@@ -91,7 +91,7 @@ const Login = () => {
 
                   <Box mt={2}>
                     <Grid container justifyContent="flex-end">
-                      <Grid item>
+                      <Grid>
                         <Link to="/register" style={{ textDecoration: "none" }}>
                           <Typography variant="body2" color="primary">
                             Don't have an account? Register

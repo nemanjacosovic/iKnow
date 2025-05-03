@@ -174,7 +174,7 @@ const SetForm = () => {
             {({ values, setFieldValue, errors, touched, isSubmitting }) => (
               <Form>
                 <Grid container spacing={3}>
-                  <Grid item xs={12} sm={6}>
+                  <Grid sm={6}>
                     <Field
                       as={TextField}
                       fullWidth
@@ -185,7 +185,7 @@ const SetForm = () => {
                       helperText={touched.name && errors.name}
                     />
                   </Grid>
-                  <Grid item xs={12} sm={6}>
+                  <Grid sm={6}>
                     <FormControl
                       variant="outlined"
                       fullWidth
