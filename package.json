@@ -12,5 +12,8 @@
     "trivia"
   ],
   "author": "Nemanja A. Cosovic",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
 }
