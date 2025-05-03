@@ -67,7 +67,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Layout = ({ children, title }) => {
   const classes = useStyles();
-  const history = useHistory();
+  const navigate = useNavigate();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
 
@@ -89,12 +89,12 @@ const Layout = ({ children, title }) => {
   const handleLogout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
-    history.push("/");
+    navigate("/");
   };
 
   const handleProfileClick = () => {
     handleClose();
-    history.push("/profile");
+    navigate("/profile");
   };
 
   const drawer = (

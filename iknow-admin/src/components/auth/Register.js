@@ -29,7 +29,7 @@ const RegisterSchema = Yup.object().shape({
 
 const Register = () => {
   const [error, setError] = useState("");
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const handleSubmit = async (values, { setSubmitting }) => {
     try {
@@ -44,7 +44,7 @@ const Register = () => {
       localStorage.setItem("token", res.data.token);
       localStorage.setItem("user", JSON.stringify(res.data.user));
 
-      history.push("/dashboard");
+      navigate("/dashboard");
     } catch (err) {
       setError(
         err.response?.data?.error || "Registration failed. Please try again."

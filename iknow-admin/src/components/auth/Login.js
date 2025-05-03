@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import {
@@ -23,14 +23,14 @@ const LoginSchema = Yup.object().shape({
 
 const Login = () => {
   const [error, setError] = useState("");
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const handleSubmit = async (values, { setSubmitting }) => {
     try {
       const res = await api.post("/auth/login", values);
       localStorage.setItem("token", res.data.token);
       localStorage.setItem("user", JSON.stringify(res.data.user));
-      history.push("/dashboard");
+      navigate("/dashboard");
     } catch (err) {
       setError(err.response?.data?.error || "Login failed. Please try again.");
     }

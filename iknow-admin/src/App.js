@@ -40,79 +40,120 @@ function App() {
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/dashboard" element={
-            <PrivateRoute>
-              <Dashboard />
-            </PrivateRoute>
-          } />
-          <Route path="/categories" element={
-            <PrivateRoute>
-              <Categories />
-            </PrivateRoute>
-          } />
-          <Route path="/categories/new" element={
-            <PrivateRoute>
-              <CategoryForm />
-            </PrivateRoute>
-          } />
-          <Route path="/categories/edit/:id" element={
-            <PrivateRoute>
-              <CategoryForm />
-            </PrivateRoute>
-          } />
-          <Route path="/questions" element={
-            <PrivateRoute>
-              <Questions />
-            </PrivateRoute>
-          } />
-          <Route path="/questions/new" element={
-            <PrivateRoute>
-              <QuestionForm />
-            </PrivateRoute>
-          } />
-          <Route path="/questions/edit/:id" element={
-            <PrivateRoute>
-              <QuestionForm />
-            </PrivateRoute>
-          } />
-          <Route path="/sets" element={
-            <PrivateRoute>
-              <Sets />
-            </PrivateRoute>
-          } />
-          <Route path="/sets/new" element={
-            <PrivateRoute>
-              <SetForm />
-            </PrivateRoute>
-          } />
-          <Route path="/sets/edit/:id" element={
-            <PrivateRoute>
-              <SetForm />
-            </PrivateRoute>
-          } />
-          <Route path="/users" element={
-            <PrivateRoute>
-              <Users />
-            </PrivateRoute>
-          } />
-          <Route path="/users/new" element={
-            <PrivateRoute>
-              <UserForm />
-            </PrivateRoute>
-          } />
-          <Route path="/users/edit/:id" element={
-            <PrivateRoute>
-              <UserForm />
-            </PrivateRoute>
-          } />
-          <Route path="/profile" element={
-            <PrivateRoute>
-              <Profile />
-            </PrivateRoute>
-          } />
+          <Route
+            path="/dashboard"
+            element={
+              <PrivateRoute>
+                <Dashboard />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/categories"
+            element={
+              <PrivateRoute>
+                <Categories />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/categories/new"
+            element={
+              <PrivateRoute>
+                <CategoryForm />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/categories/edit/:id"
+            element={
+              <PrivateRoute>
+                <CategoryForm />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/questions"
+            element={
+              <PrivateRoute>
+                <Questions />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/questions/new"
+            element={
+              <PrivateRoute>
+                <QuestionForm />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/questions/edit/:id"
+            element={
+              <PrivateRoute>
+                <QuestionForm />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/sets"
+            element={
+              <PrivateRoute>
+                <Sets />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/sets/new"
+            element={
+              <PrivateRoute>
+                <SetForm />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/sets/edit/:id"
+            element={
+              <PrivateRoute>
+                <SetForm />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/users"
+            element={
+              <PrivateRoute>
+                <Users />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/users/new"
+            element={
+              <PrivateRoute>
+                <UserForm />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/users/edit/:id"
+            element={
+              <PrivateRoute>
+                <UserForm />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/profile"
+            element={
+              <PrivateRoute>
+                <Profile />
+              </PrivateRoute>
+            }
+          />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
-      </Router>
       </Router>
     </ThemeProvider>
   );
