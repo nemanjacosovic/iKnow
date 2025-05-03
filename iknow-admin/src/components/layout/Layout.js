@@ -4,7 +4,6 @@ import {
   AppBar,
   CssBaseline,
   Drawer,
-  Hidden,
   IconButton,
   List,
   ListItem,
@@ -17,6 +16,7 @@ import {
   Menu,
   MenuItem,
   makeStyles,
+  useMediaQuery,
 } from "@mui/material";
 import {
   Menu as MenuIcon,
@@ -27,6 +27,7 @@ import {
   People as PeopleIcon,
   AccountCircle as AccountIcon,
 } from "@mui/icons-material";
+import { useTheme } from "@mui/material/styles";
 
 const drawerWidth = 240;
 
@@ -68,6 +69,8 @@ const useStyles = makeStyles((theme) => ({
 const Layout = ({ children, title }) => {
   const classes = useStyles();
   const navigate = useNavigate();
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const [mobileOpen, setMobileOpen] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
 
@@ -193,7 +196,7 @@ const Layout = ({ children, title }) => {
         </Toolbar>
       </AppBar>
       <nav className={classes.drawer} aria-label="navigation">
-        <Hidden smUp implementation="css">
+        {isMobile ? (
           <Drawer
             variant="temporary"
             open={mobileOpen}
@@ -207,8 +210,7 @@ const Layout = ({ children, title }) => {
           >
             {drawer}
           </Drawer>
-        </Hidden>
-        <Hidden xsDown implementation="css">
+        ) : (
           <Drawer
             classes={{
               paper: classes.drawerPaper,
@@ -218,7 +220,7 @@ const Layout = ({ children, title }) => {
           >
             {drawer}
           </Drawer>
-        </Hidden>
+        )}
       </nav>
       <main className={classes.content}>
         <div className={classes.toolbar} />

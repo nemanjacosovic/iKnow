@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import {
+  Alert,
   Container,
   Typography,
   TextField,
@@ -13,7 +14,6 @@ import {
   CircularProgress,
   Snackbar,
 } from "@mui/material";
-import { Alert } from "'@mui/material";
 import api from "../../utils/api";
 
 const RegisterSchema = Yup.object().shape({
