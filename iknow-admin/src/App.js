@@ -5,7 +5,7 @@ import {
   Routes,
   Navigate,
 } from "react-router-dom";
-import { ThemeProvider, createMuiTheme, CssBaseline } from "@mui/material";
+import { ThemeProvider, createTheme, CssBaseline } from "@mui/material";
 import Login from "./components/auth/Login";
 import Register from "./components/auth/Register";
 import Dashboard from "./components/dashboard/Dashboard";
@@ -21,7 +21,7 @@ import Profile from "./components/profile/Profile";
 import PrivateRoute from "./components/routing/PrivateRoute";
 import "./App.css";
 
-const theme = createMuiTheme({
+const theme = createTheme({
   palette: {
     primary: {
       main: "#1976d2",

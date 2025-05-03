@@ -13,8 +13,8 @@ import {
   Snackbar,
   FormControlLabel,
   Switch,
-} from "@material-ui/core";
-import { Alert } from "@material-ui/lab";
+} from "@mui/material";
+import { Alert } from "'@mui/material";
 import Layout from "../layout/Layout";
 import api from "../../utils/api";
 
