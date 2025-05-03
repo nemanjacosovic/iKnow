@@ -5,7 +5,7 @@ import {
   Routes,
   Navigate,
 } from "react-router-dom";
-import { ThemeProvider, createMuiTheme, CssBaseline } from "@material-ui/core";
+import { ThemeProvider, createMuiTheme, CssBaseline } from "@mui/material";
 import Login from "./components/auth/Login";
 import Register from "./components/auth/Register";
 import Dashboard from "./components/dashboard/Dashboard";

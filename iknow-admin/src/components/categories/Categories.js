@@ -18,13 +18,13 @@ import {
   DialogContent,
   DialogContentText,
   DialogTitle,
-} from "@material-ui/core";
-import { Alert } from "@material-ui/lab";
+} from "@mui/material";
+import { Alert } from "'@mui/material";
 import {
   Add as AddIcon,
   Edit as EditIcon,
   Delete as DeleteIcon,
-} from "@material-ui/icons";
+} from "@mui/icons-material";
 import Layout from "../layout/Layout";
 import api from "../../utils/api";
 

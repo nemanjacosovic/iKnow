@@ -12,8 +12,8 @@ import {
   Box,
   CircularProgress,
   Snackbar,
-} from "@material-ui/core";
-import { Alert } from "@material-ui/lab";
+} from "@mui/material";
+import { Alert } from "'@mui/material";
 import api from "../../utils/api";
 
 const RegisterSchema = Yup.object().shape({

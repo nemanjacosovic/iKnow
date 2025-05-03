@@ -17,7 +17,7 @@ import {
   Menu,
   MenuItem,
   makeStyles,
-} from "@material-ui/core";
+} from "@mui/material";
 import {
   Menu as MenuIcon,
   Dashboard as DashboardIcon,
@@ -26,7 +26,7 @@ import {
   LibraryBooks as SetIcon,
   People as PeopleIcon,
   AccountCircle as AccountIcon,
-} from "@material-ui/icons";
+} from "@mui/icons-material";
 
 const drawerWidth = 240;
 

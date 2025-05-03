@@ -11,14 +11,14 @@ import {
   Button,
   CircularProgress,
   Snackbar,
-} from "@material-ui/core";
-import { Alert } from "@material-ui/lab";
+} from "@mui/material";
+import { Alert } from "'@mui/material";
 import {
   Category as CategoryIcon,
   QuestionAnswer as QuestionIcon,
   LibraryBooks as SetIcon,
   People as PeopleIcon,
-} from "@material-ui/icons";
+} from "@mui/icons-material";
 import Layout from "../layout/Layout";
 import api from "../../utils/api";
 
