@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import {
@@ -25,7 +25,7 @@ const CategorySchema = Yup.object().shape({
 
 const CategoryForm = () => {
   const { id } = useParams();
-  const history = useHistory();
+  const navigate = useNavigate();
   const [category, setCategory] = useState(null);
   const [loading, setLoading] = useState(id ? true : false);
   const [error, setError] = useState("");
@@ -49,7 +49,7 @@ const CategoryForm = () => {
       } else {
         await api.post("/categories", values);
       }
-      history.push("/categories");
+      navigate("/categories");
     } catch (err) {
       setError(err.response?.data?.error || "Error saving category");
       setSubmitting(false);
@@ -151,7 +151,7 @@ const CategoryForm = () => {
                         type="button"
                         variant="outlined"
                         color="secondary"
-                        onClick={() => history.push("/categories")}
+                        onClick={() => navigate("/categories")}
                         style={{ marginRight: 8 }}
                       >
                         Cancel

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { Formik, Form, Field, FieldArray } from "formik";
 import * as Yup from "yup";
 import {
@@ -45,7 +45,7 @@ const QuestionSchema = Yup.object().shape({
 
 const QuestionForm = () => {
   const { id } = useParams();
-  const history = useHistory();
+  const navigate = useNavigate();
   const [question, setQuestion] = useState(null);
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -79,7 +79,7 @@ const QuestionForm = () => {
       } else {
         await api.post("/questions", values);
       }
-      history.push("/questions");
+      navigate("/questions");
     } catch (err) {
       setError(err.response?.data?.error || "Error saving question");
       setSubmitting(false);
@@ -296,7 +296,7 @@ const QuestionForm = () => {
                         type="button"
                         variant="outlined"
                         color="secondary"
-                        onClick={() => history.push("/questions")}
+                        onClick={() => navigate("/questions")}
                         style={{ marginRight: 8 }}
                       >
                         Cancel
