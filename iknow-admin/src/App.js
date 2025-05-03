@@ -2,8 +2,8 @@ import React from "react";
 import {
   BrowserRouter as Router,
   Route,
-  Switch,
-  Redirect,
+  Routes,
+  Navigate,
 } from "react-router-dom";
 import { ThemeProvider, createMuiTheme, CssBaseline } from "@material-ui/core";
 import Login from "./components/auth/Login";
@@ -37,33 +37,82 @@ function App() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Router>
-        <Switch>
-          <Route exact path="/" component={Login} />
-          <Route exact path="/register" component={Register} />
-          <PrivateRoute exact path="/dashboard" component={Dashboard} />
-          <PrivateRoute exact path="/categories" component={Categories} />
-          <PrivateRoute exact path="/categories/new" component={CategoryForm} />
-          <PrivateRoute
-            exact
-            path="/categories/edit/:id"
-            component={CategoryForm}
-          />
-          <PrivateRoute exact path="/questions" component={Questions} />
-          <PrivateRoute exact path="/questions/new" component={QuestionForm} />
-          <PrivateRoute
-            exact
-            path="/questions/edit/:id"
-            component={QuestionForm}
-          />
-          <PrivateRoute exact path="/sets" component={Sets} />
-          <PrivateRoute exact path="/sets/new" component={SetForm} />
-          <PrivateRoute exact path="/sets/edit/:id" component={SetForm} />
-          <PrivateRoute exact path="/users" component={Users} />
-          <PrivateRoute exact path="/users/new" component={UserForm} />
-          <PrivateRoute exact path="/users/edit/:id" component={UserForm} />
-          <PrivateRoute exact path="/profile" component={Profile} />
-          <Redirect to="/" />
-        </Switch>
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/dashboard" element={
+            <PrivateRoute>
+              <Dashboard />
+            </PrivateRoute>
+          } />
+          <Route path="/categories" element={
+            <PrivateRoute>
+              <Categories />
+            </PrivateRoute>
+          } />
+          <Route path="/categories/new" element={
+            <PrivateRoute>
+              <CategoryForm />
+            </PrivateRoute>
+          } />
+          <Route path="/categories/edit/:id" element={
+            <PrivateRoute>
+              <CategoryForm />
+            </PrivateRoute>
+          } />
+          <Route path="/questions" element={
+            <PrivateRoute>
+              <Questions />
+            </PrivateRoute>
+          } />
+          <Route path="/questions/new" element={
+            <PrivateRoute>
+              <QuestionForm />
+            </PrivateRoute>
+          } />
+          <Route path="/questions/edit/:id" element={
+            <PrivateRoute>
+              <QuestionForm />
+            </PrivateRoute>
+          } />
+          <Route path="/sets" element={
+            <PrivateRoute>
+              <Sets />
+            </PrivateRoute>
+          } />
+          <Route path="/sets/new" element={
+            <PrivateRoute>
+              <SetForm />
+            </PrivateRoute>
+          } />
+          <Route path="/sets/edit/:id" element={
+            <PrivateRoute>
+              <SetForm />
+            </PrivateRoute>
+          } />
+          <Route path="/users" element={
+            <PrivateRoute>
+              <Users />
+            </PrivateRoute>
+          } />
+          <Route path="/users/new" element={
+            <PrivateRoute>
+              <UserForm />
+            </PrivateRoute>
+          } />
+          <Route path="/users/edit/:id" element={
+            <PrivateRoute>
+              <UserForm />
+            </PrivateRoute>
+          } />
+          <Route path="/profile" element={
+            <PrivateRoute>
+              <Profile />
+            </PrivateRoute>
+          } />
+          <Route path="*" element={<Navigate to="/" />} />
+        </Routes>
+      </Router>
       </Router>
     </ThemeProvider>
   );
