@@ -29,7 +29,7 @@ trivia-api/
 │ ├── sets.js
 │ └── users.js
 └── middleware/
-└── auth.js
+...└── auth.js
 
 trivia-admin/
 ├── public/
