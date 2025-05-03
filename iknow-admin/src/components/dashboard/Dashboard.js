@@ -34,11 +34,7 @@ const Dashboard = () => {
   const user = JSON.parse(localStorage.getItem("user"));
   const isAdmin = user && user.is_admin;
 
-  useEffect(() => {
-    fetchStats();
-  }, []);
-
-  const fetchStats = async () => {
+  const fetchStats = useCallback(async () => {
     try {
       setLoading(true);
 
@@ -70,7 +66,11 @@ const Dashboard = () => {
       setError("Error fetching dashboard data");
       setLoading(false);
     }
-  };
+  }, [isAdmin]);
+
+  useEffect(() => {
+    fetchStats();
+  }, [fetchStats]);
 
   if (loading) {
     return (
