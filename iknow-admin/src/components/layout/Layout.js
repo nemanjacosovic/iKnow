@@ -15,7 +15,6 @@ import {
   Box,
   Menu,
   MenuItem,
-  makeStyles,
   useMediaQuery,
 } from "@mui/material";
 import {
@@ -28,6 +27,7 @@ import {
   AccountCircle as AccountIcon,
 } from "@mui/icons-material";
 import { useTheme } from "@mui/material/styles";
+import { makeStyles } from "@material-ui/core/styles";
 
 const drawerWidth = 240;
 
