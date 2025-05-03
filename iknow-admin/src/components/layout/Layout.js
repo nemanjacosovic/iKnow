@@ -1,4 +1,3 @@
-// src/components/layout/Layout.js
 import React, { useState } from "react";
 import { useHistory, Link } from "react-router-dom";
 import {
@@ -27,7 +26,6 @@ import {
   LibraryBooks as SetIcon,
   People as PeopleIcon,
   AccountCircle as AccountIcon,
-  ExitToApp as LogoutIcon,
 } from "@material-ui/icons";
 
 const drawerWidth = 240;

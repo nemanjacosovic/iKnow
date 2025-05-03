@@ -1,4 +1,3 @@
-// src/components/categories/CategoryForm.js
 import React, { useState, useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import { Formik, Form, Field } from "formik";
@@ -32,13 +31,7 @@ const CategoryForm = () => {
   const [error, setError] = useState("");
   const isEdit = !!id;
 
-  useEffect(() => {
-    if (id) {
-      fetchCategory();
-    }
-  }, [id]);
-
-  const fetchCategory = async () => {
+  const fetchCategory = useCallback(async () => {
     try {
       const res = await api.get(`/categories/${id}`);
       setCategory(res.data);
@@ -47,7 +40,7 @@ const CategoryForm = () => {
       setError("Error fetching category");
       setLoading(false);
     }
-  };
+  }, [id]);
 
   const handleSubmit = async (values, { setSubmitting }) => {
     try {
@@ -62,6 +55,12 @@ const CategoryForm = () => {
       setSubmitting(false);
     }
   };
+
+  useEffect(() => {
+    if (id) {
+      fetchCategory();
+    }
+  }, [fetchCategory, id]);
 
   if (loading) {
     return (

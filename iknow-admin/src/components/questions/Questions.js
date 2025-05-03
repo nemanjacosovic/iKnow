@@ -1,4 +1,3 @@
-// src/components/questions/Questions.js
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import {
@@ -47,15 +46,6 @@ const Questions = () => {
     difficulty: "",
   });
 
-  useEffect(() => {
-    fetchCategories();
-    fetchQuestions();
-  }, []);
-
-  useEffect(() => {
-    fetchQuestions();
-  }, [filters]);
-
   const fetchCategories = async () => {
     try {
       const res = await api.get("/categories");
@@ -65,7 +55,7 @@ const Questions = () => {
     }
   };
 
-  const fetchQuestions = async () => {
+  const fetchQuestions = useCallback(async () => {
     try {
       setLoading(true);
       let url = "/questions";
@@ -90,7 +80,7 @@ const Questions = () => {
       setError("Error fetching questions");
       setLoading(false);
     }
-  };
+  }, [filters]);
 
   const handleDeleteClick = (question) => {
     setQuestionToDelete(question);
@@ -115,6 +105,14 @@ const Questions = () => {
       [event.target.name]: event.target.value,
     });
   };
+
+  useEffect(() => {
+    fetchCategories();
+  }, []);
+
+  useEffect(() => {
+    fetchQuestions();
+  }, [fetchQuestions, filters]);
 
   const getDifficultyColor = (difficulty) => {
     switch (difficulty) {

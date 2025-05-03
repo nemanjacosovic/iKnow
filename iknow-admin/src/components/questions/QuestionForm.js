@@ -1,4 +1,3 @@
-// src/components/questions/QuestionForm.js
 import React, { useState, useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import { Formik, Form, Field, FieldArray } from "formik";
@@ -17,12 +16,10 @@ import {
   Select,
   MenuItem,
   FormHelperText,
-  IconButton,
   Checkbox,
   FormControlLabel,
 } from "@material-ui/core";
 import { Alert } from "@material-ui/lab";
-import { Delete as DeleteIcon } from "@material-ui/icons";
 import Layout from "../layout/Layout";
 import api from "../../utils/api";
 
@@ -55,25 +52,16 @@ const QuestionForm = () => {
   const [error, setError] = useState("");
   const isEdit = !!id;
 
-  useEffect(() => {
-    fetchCategories();
-    if (id) {
-      fetchQuestion();
-    } else {
-      setLoading(false);
-    }
-  }, [id]);
-
-  const fetchCategories = async () => {
+  const fetchCategories = useCallback(async () => {
     try {
       const res = await api.get("/categories");
       setCategories(res.data);
     } catch (err) {
       setError("Error fetching categories");
     }
-  };
+  }, []);
 
-  const fetchQuestion = async () => {
+  const fetchQuestion = useCallback(async () => {
     try {
       const res = await api.get(`/questions/${id}`);
       setQuestion(res.data);
@@ -82,7 +70,7 @@ const QuestionForm = () => {
       setError("Error fetching question");
       setLoading(false);
     }
-  };
+  }, [id]);
 
   const handleSubmit = async (values, { setSubmitting }) => {
     try {
@@ -97,6 +85,16 @@ const QuestionForm = () => {
       setSubmitting(false);
     }
   };
+
+  useEffect(() => {
+    fetchCategories();
+
+    if (id) {
+      fetchQuestion();
+    } else {
+      setLoading(false);
+    }
+  }, [fetchCategories, fetchQuestion, id]);
 
   if (loading) {
     return (

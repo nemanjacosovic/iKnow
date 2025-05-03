@@ -1,4 +1,3 @@
-// src/components/users/UserForm.js
 import React, { useState, useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import { Formik, Form, Field } from "formik";
@@ -39,13 +38,7 @@ const UserForm = () => {
   const [error, setError] = useState("");
   const isEdit = !!id;
 
-  useEffect(() => {
-    if (id) {
-      fetchUser();
-    }
-  }, [id]);
-
-  const fetchUser = async () => {
+  const fetchUser = useCallback(async () => {
     try {
       const res = await api.get(`/users/${id}`);
       setUser(res.data);
@@ -54,7 +47,7 @@ const UserForm = () => {
       setError("Error fetching user");
       setLoading(false);
     }
-  };
+  }, [id]);
 
   const handleSubmit = async (values, { setSubmitting }) => {
     try {
@@ -73,6 +66,12 @@ const UserForm = () => {
       setSubmitting(false);
     }
   };
+
+  useEffect(() => {
+    if (id) {
+      fetchUser();
+    }
+  }, [fetchUser, id]);
 
   if (loading) {
     return (

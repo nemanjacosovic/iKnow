@@ -1,4 +1,3 @@
-// src/components/sets/Sets.js
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import {
@@ -30,7 +29,6 @@ import {
   Add as AddIcon,
   Edit as EditIcon,
   Delete as DeleteIcon,
-  Visibility as ViewIcon,
 } from "@material-ui/icons";
 import Layout from "../layout/Layout";
 import api from "../../utils/api";
@@ -45,15 +43,6 @@ const Sets = () => {
   const [setToDelete, setSetToDelete] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState("");
 
-  useEffect(() => {
-    fetchCategories();
-    fetchSets();
-  }, []);
-
-  useEffect(() => {
-    fetchSets();
-  }, [selectedCategory]);
-
   const fetchCategories = async () => {
     try {
       const res = await api.get("/categories");
@@ -63,7 +52,7 @@ const Sets = () => {
     }
   };
 
-  const fetchSets = async () => {
+  const fetchSets = useCallback(async () => {
     try {
       setLoading(true);
       let url = "/sets";
@@ -77,7 +66,7 @@ const Sets = () => {
       setError("Error fetching sets");
       setLoading(false);
     }
-  };
+  }, [selectedCategory]);
 
   const handleDeleteClick = (set) => {
     setSetToDelete(set);
@@ -99,6 +88,14 @@ const Sets = () => {
   const handleCategoryChange = (event) => {
     setSelectedCategory(event.target.value);
   };
+
+  useEffect(() => {
+    fetchCategories();
+  }, []);
+
+  useEffect(() => {
+    fetchSets();
+  }, [fetchSets, selectedCategory]);
 
   return (
     <Layout title="Question Sets">

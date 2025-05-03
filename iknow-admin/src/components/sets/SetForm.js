@@ -1,4 +1,3 @@
-// src/components/sets/SetForm.js
 import React, { useState, useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import { Formik, Form, Field } from "formik";
@@ -51,21 +50,6 @@ const SetForm = () => {
   const [selectedCategoryId, setSelectedCategoryId] = useState("");
   const isEdit = !!id;
 
-  useEffect(() => {
-    fetchCategories();
-    if (id) {
-      fetchSet();
-    } else {
-      setLoading(false);
-    }
-  }, [id]);
-
-  useEffect(() => {
-    if (selectedCategoryId) {
-      fetchQuestions(selectedCategoryId);
-    }
-  }, [selectedCategoryId]);
-
   const fetchCategories = async () => {
     try {
       const res = await api.get("/categories");
@@ -75,7 +59,7 @@ const SetForm = () => {
     }
   };
 
-  const fetchSet = async () => {
+  const fetchSet = useCallback(async () => {
     try {
       const res = await api.get(`/sets/${id}`);
       setSet(res.data);
@@ -86,16 +70,16 @@ const SetForm = () => {
       setError("Error fetching set");
       setLoading(false);
     }
-  };
+  }, [id]);
 
-  const fetchQuestions = async (categoryId) => {
+  const fetchQuestions = useCallback(async (categoryId) => {
     try {
       const res = await api.get(`/questions?category_id=${categoryId}`);
       setQuestions(res.data);
     } catch (err) {
       setError("Error fetching questions");
     }
-  };
+  }, []);
 
   const handleSubmit = async (values, { setSubmitting }) => {
     try {
@@ -139,6 +123,21 @@ const SetForm = () => {
     // Clear selected questions when category changes
     setSelectedQuestions([]);
   };
+
+  useEffect(() => {
+    fetchCategories();
+    if (id) {
+      fetchSet();
+    } else {
+      setLoading(false);
+    }
+  }, [fetchSet, id]);
+
+  useEffect(() => {
+    if (selectedCategoryId) {
+      fetchQuestions(selectedCategoryId);
+    }
+  }, [fetchQuestions, selectedCategoryId]);
 
   if (loading) {
     return (
